@@ -1,0 +1,15 @@
+.bottomWavesContainer {
+    position: absolute;
+    bottom: 0;
+    height: fit-content;
+    max-width: 1512px;
+    width: 100%;
+
+    .darkWave,
+    .lightWave {
+        position: absolute;
+        min-height: 100px;
+        bottom: 0;
+        width: 100%;
+    }
+}
