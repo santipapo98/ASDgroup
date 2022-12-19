@@ -2,3 +2,28 @@
     font-family: 'Lexend';
     src: url('/fonts/LexendDeca-Regular.ttf') format('truetype')
 }
+
+@mixin tablet {
+    @media screen and (max-width: 1023px) {
+        @content;
+    }
+}
+
+@mixin tabletMin {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+
+@mixin mobileMaxL {
+    @media screen and (max-width: 640px) {
+        @content;
+    }
+}
+
+@mixin mobilePlus {
+    @media screen and (max-width: 430px) {
+        @content;
+    }
+}

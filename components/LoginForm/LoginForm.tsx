@@ -1,19 +1,18 @@
-import React from 'react'
+import Cookies from 'js-cookie'
 import styles from './LoginForm.module.scss'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
+import { useRouter } from 'next/router';
 
-type Props = {
-
-}
-
-function LoginForm({ }: Props) {
+function LoginForm() {
+    const router = useRouter()
 
     const { register, formState: { errors }, handleSubmit } = useForm()
 
     const onSubmit = (data: any) => {
         if (data.user === 'grupoASD@gmail.com' && data.password === "Rjs2022*") {
-            console.log('exito')
+            Cookies.set("loggedIn", 'true')
+            router.push("/home")
         } else {
             swal({
                 title: "The user or password are incorrect!",
