@@ -4,17 +4,15 @@ import { fetchCryptoData } from '../utils/fetchCryptoData'
 import styles from '../styles/Globals.module.scss'
 import moment from 'moment'
 import swal from 'sweetalert'
-import { cryptoObject } from '../typings'
+import { cryptoObject, unfilteredCryptoObject } from '../typings'
 import { allowedData, dataTypes } from '../utils/objects/generalObjects'
 
 type Props = {
-  cryptoData: Array<cryptoObject>
+  cryptoData: Array<unfilteredCryptoObject>
 }
 
-
-
-const filterData = (data: Array<cryptoObject>) => {
-  const filteredData = data?.map((singleData: cryptoObject) => {
+const filterData = (data: Array<unfilteredCryptoObject>) => {
+  const filteredData = data?.map((singleData: unfilteredCryptoObject) => {
     return Object.keys(singleData).filter(key => allowedData.includes(key)).reduce((obj: any, key: any) => {
       if (key === 'at') {
         obj[key] = moment(Number(singleData[key as keyof cryptoObject])).format('L');

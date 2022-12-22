@@ -1,3 +1,9 @@
+export interface unfilteredCryptoObject extends cryptoObject {
+    askPrice: string;
+    baseAsset: string;
+    bidPrice: string;
+    volume: string;
+}
 export interface cryptoObject {
     symbol: string;
     quoteAsset: string;
@@ -12,3 +18,4 @@ export interface loginForm {
     user: string;
     password: string;
 }
+
