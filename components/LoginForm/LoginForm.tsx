@@ -3,13 +3,14 @@ import styles from './LoginForm.module.scss'
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import { useRouter } from 'next/router';
+import { loginForm } from '../../typings'
 
 function LoginForm() {
     const router = useRouter()
 
-    const { register, formState: { errors }, handleSubmit } = useForm()
+    const { register, formState: { errors }, handleSubmit } = useForm<loginForm>()
 
-    const onSubmit = (data: any) => {
+    const onSubmit = (data: loginForm) => {
         if (data.user === 'grupoASD@gmail.com' && data.password === "Rjs2022*") {
             Cookies.set("loggedIn", 'true')
             router.push("/home")
